@@ -6,13 +6,25 @@ ul{
 	padding: 0;
 }
 
+a{
+	transition: all .25s ease;
+}
+
 header{
 	background-color: #fff;
 }
 
 .top_line{
 	background-color: #444444;
+	transition: top .25s ease;
 }
+
+.fixed{
+	position: fixed;
+	z-index: 100;
+	width: 100%;
+}
+
 .nav{
 	list-style-type: none;
 	padding: 0;
@@ -49,12 +61,14 @@ header{
 .user_block .fa{
 	font-size: 15px;
 }
-.user_block>a{
+.user_block a{
 	font-family: "OpenSansRegular";
 	font-size: 15px;
 	color: #fafafa;
 	border-bottom: 1px #fafafa dashed;
 }
+
+
 
 .top_info{
 	padding: 25px 0;
@@ -703,6 +717,7 @@ span.text_center{
 	border: none;
 	padding: 10px 20px;
 	margin-right: 15px;
+	border-radius: 0;
 }
 
 .align_middle{
@@ -828,6 +843,10 @@ section.wrapper{
 	margin-right: 10px;
 }
 
+.breadcrumbs_item .fa{
+	margin-left: 5px;
+}
+
 .breadcrumbs_item span{
 	border-bottom: 1px solid #363636;
 	cursor: pointer;
@@ -886,6 +905,7 @@ h1.section_header{
 	border-bottom: 1px solid #e3e3e3;
 	position: relative;
 	margin-bottom: 40px;
+	padding-bottom: 15px;
 }
 h1.section_header:after{
 	content: "";
@@ -921,8 +941,8 @@ h1.section_header:after{
 	transition: border-color .25s ease;
 }
 .circle_1{
-	width: 180px;
-	height: 180px;
+	width: 120px;
+	height: 120px;
 	margin: auto;
 	border: 4px dotted #b0afaf;
 }
@@ -946,7 +966,7 @@ h1.section_header:after{
 }
 
 .circle_3 img{
-	width: 90px;
+	width: 65%;
 	margin: 0 auto;
 }
 
@@ -1054,7 +1074,8 @@ h1.section_header:after{
  	text-align: center;
 }
 
-.cat_list_item>a{
+.cat_list_item>.cli_wrapp{
+	cursor: pointer;	
 	display: flex;
 	align-items: center;
   	justify-content: space-between;
@@ -1067,11 +1088,11 @@ h1.section_header:after{
 	transition: box-shadow .25s ease;
 }
 
-.cat_list_item.active>a{
+.cat_list_item>.cli_wrapp:hover{
 	-webkit-box-shadow: inset 3px 3px 3px #fe6319;
 	box-shadow: inset 5px 0 0 #fe6319;
 }
-.cat_list_item.active .badge{
+.cat_list_item>.cli_wrapp:hover .badge{
 	background-color: #fe6319;
 }
 .sub_cat_list{
@@ -1120,8 +1141,7 @@ h1.section_header:after{
 
 }
 
-
-.serch_block input[type="text"]{
+input[type="text"], textarea, input[type="password"]{
 	width: 100%;
 	position: relative;
 	padding: 10px 15px;
@@ -1130,6 +1150,11 @@ h1.section_header:after{
 	font-size: 14px;
 	font-family: "RobotoRegular";
 	color: #888888;
+	outline: none;
+	transition: box-shadow .25s ease;
+}
+input[type="text"]:focus, input[type="text"]:active, textarea:focus, textarea:active, input[type="password"]:focus, input[type="password"]:active{
+	box-shadow: inset 0px 0px 3px 0px rgba(0,0,0, .5);
 
 }
 
@@ -1157,4 +1182,691 @@ h1.section_header:after{
 }
 .payment_service{
 	margin-top: 10px;
+}
+
+.social_links{
+	list-style-type: none;
+}
+.social_links li{
+	display: inline-block;
+	margin-right: 10px;
+}
+.social_links li img{
+	margin-right: 5px;
+}
+.social_links li a{
+	display: flex;
+	align-items: flex-end;
+	text-decoration: underline;
+	font-size: 15px;
+	font-family: "RobotoLight";
+	transition: text-decoration-color .25s ease;
+}
+.social_links li a:hover{
+	text-decoration-color: transparent;
+}
+
+.registr_descr{
+	color: #363636;
+	font-family: "RobotoLight";
+	font-size: 15px;
+
+}
+.auth_form .accent_button{
+	margin-left: 120px;
+}
+
+.auth_form input[type="text"], input[type="password"]{
+	width: 320px;
+
+}
+.auth_form .input_group, .send_request_form .input_group{
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
+}
+.auth_form .input_group span, .send_request_form .input_group span{
+	width: 100px;
+	text-align: right;
+	color: #494949;
+	font-family: "RobotoRegular";
+	font-size: 15px;
+	margin-right: 20px;
+}
+.input_group p{
+	font-family: "RobotoLight";
+	font-size: 15px;
+	margin-left: 10px;	
+}
+
+.input_group p a{
+	color: #007baf;
+	text-decoration: underline;
+	transition: text-decoration-color .25s ease;
+}
+.input_group p a:hover{
+	text-decoration-color: transparent;
+}
+
+
+
+
+.product_navigation { 
+	list-style: none; 
+	position: relative; 
+	display: block;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #e3e3e3;
+	
+}
+.product_navigation:before{
+	content: "";
+	width: 100%;
+	height: 5px;
+	background-color: #eee;
+	border-radius: 10px;
+	position: absolute;
+	top: 0;
+	left: 0;
+
+}
+.product_navigation li{ 
+	display: inline-block;
+	position: relative;
+}
+.product_navigation li .fa{
+	position: absolute;
+	font-size: 6px;
+	top: 51%;
+	right: -5px;
+	color: #fe6319;	
+}
+
+.product_navigation a { 
+	padding: 13px 8px 8px;	
+	position: relative;
+	display: inline-block;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-family: "RobotoRegular";
+	font-size: 12px;
+	color: #363636;
+	transition: color .25s ease, box-shadow .25s ease;
+}
+.product_navigation a:hover, .product_navigation .current a { 
+	color: #fe6319; 
+	-webkit-box-shadow: inset 0 5px 0 #fe6319;
+	box-shadow: inset 0 5px 0 #fe6319;
+}
+
+.product_navigation li:last-child .fa{
+	display: none;
+}
+
+
+
+.product_banner{
+	background: url(../images/jorange_big.png);
+	background-position-x: right;
+    background-position-y: bottom;
+    background-repeat: no-repeat;
+    padding-top: 40px;
+}
+
+.product_banner .col-md-6:nth-child(2){
+	padding-right: 0;
+}
+
+.product_banner_header{
+	color: #fe6319;
+	font-family: "RobotoRegular";
+	font-size: 18px;
+	margin-top: 0;
+}
+
+.product_banner_descr{
+	color: #363636;
+	font-size: 15px;
+	font-family: "RobotoLight";
+
+}
+
+.buy_block{
+	display: flex;
+	align-items: center;
+}
+
+.price{
+	font-size: 16px;
+	color: #363636;
+	font-family: "RobotoMedium";
+	margin-right: 30px;
+}
+
+.download{
+	display: flex;
+	align-items: center;
+	padding: 0 25px 0 0;
+	font-size: 15px;
+	background-color: #fe6319;
+	border: none;
+	border-radius: 3px;
+	color: #fafafa;
+	-webkit-box-shadow: inset 5px 0 0 #cb4201;
+	box-shadow:  0  3px  0  #cb4201;
+	font-family: "RobotoMedium";
+	text-transform: uppercase;
+}
+
+.upload_icon{
+	padding: 10px 8px;
+	display: inline-block;
+	margin-right: 20px;
+	background-color: rgba(255,255,255, .2);
+}
+
+.product_info_header{
+	font-size: 21px;
+	font-family: "RobotoMedium";
+	color: #363636;
+	font-weight: normal;
+}
+
+.product_info_short{
+	font-family: "RobotoLight";
+	font-size: 15px;
+	color: #363636;
+}
+
+.product_info_full_header{
+	font-family: "RobotoRegular";
+	color: #363636;
+	font-size: 15px;
+}
+
+.product_info_full{
+	list-style-type: none;
+	padding-left: 15px;
+}
+
+.product_info_full li{
+	margin-bottom: 8px;
+	font-size: 15px;
+	font-family: "RobotoLight";
+	display: flex;
+	align-items: center;
+}
+
+.product_info_full li .fa{
+	font-size: 10px;
+	margin-right: 10px;
+	color: #fe6319;
+}
+
+.recomended_products{
+	margin-top: 40px;
+}
+
+.recomended_products_header{
+	font-size: 21px;
+	font-family: "RobotoMedium";
+	color: #363636;
+	border-top: 1px solid #dfdfdf;
+	padding-top: 30px;	
+	margin-bottom: 30px;
+}
+
+
+.buy_button{
+	display: inline-block;
+	padding: 5px 25px;
+	margin-top: 30px;
+	font-size: 15px;
+	background-color: #fe6319;
+	border: none;
+	border-radius: 3px;
+	color: #fafafa;
+	-webkit-box-shadow: inset 5px 0 0 #cb4201;
+	box-shadow:  0  3px  0  #cb4201;
+	font-family: "RobotoMedium";
+	text-transform: uppercase;
+}
+
+
+
+.send_request_form {
+	background: #fbfbfb;
+    padding: 30px;
+    margin: 40px auto;
+    position: relative;
+    max-width: 580px;
+    border-radius: 5px;
+    box-shadow: 0 3px 3px 3px rgba(255,255,255,.5);
+}
+.send_request_form:before{
+	content: "";
+	height: 5px;
+	width: 100%;
+	background-color: #fe6319;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.send_request_form h2{
+	font-size: 38px;
+	font-family: "RobotoMedium";
+	color: #464646;
+	text-align: center;
+}
+
+.send_request_form p{
+	font-size: 15px;
+	font-family: "RobotoLight";
+	color: #494949;
+	text-align: center;
+}
+
+.send_request_form input[type="text"], .send_request_form textarea{
+	max-width: 320px;
+}
+
+.send_request_form .accent_button{
+	width: 320px;
+}
+.send_request_form .custom_separator + p{
+	margin-bottom: 30px;		
+}
+span.red{
+	color: #e95353 !important;
+}
+.form_info{
+	font-style: italic;
+}
+.inline{
+	display: inline-block;
+}
+
+.file_group{
+	display: inline-block;
+	margin-left: 50px;
+}
+
+.file_group label{
+	cursor: pointer;
+}
+
+.file_group label .icon{
+	margin-right: 10px;
+}
+
+.file_group label span{
+	font-family: "RobotoLight";
+	font-style: italic;
+	color: #494949;
+	font-size: 15px;
+	border-bottom: 1px solid #494949;
+	transition: color .25s ease, border-bottom-color .25s ease;
+}
+
+.file_group label:hover span{
+	color: #c1c1c1;
+	border-bottom-color: transparent;
+}
+
+
+.file_group input[type="file"]{
+	display: none;
+}
+
+.mfp-move-from-top {
+  /* start state */
+  /* animate in */
+  /* animate out */
+}
+.mfp-move-from-top .mfp-content {
+  vertical-align: top;
+}
+.mfp-move-from-top .mfp-with-anim {
+  opacity: 0;
+  transition: all 0.2s;
+  transform: translateY(-100px);
+}
+.mfp-move-from-top.mfp-bg {
+  opacity: 0;
+  transition: all 0.2s;
+}
+.mfp-move-from-top.mfp-ready .mfp-with-anim {
+  opacity: 1;
+  transform: translateY(0);
+}
+.mfp-move-from-top.mfp-ready.mfp-bg {
+  opacity: 0.8;
+}
+.mfp-move-from-top.mfp-removing .mfp-with-anim {
+  transform: translateY(-50px);
+  opacity: 0;
+}
+.mfp-move-from-top.mfp-removing.mfp-bg {
+  opacity: 0;
+}
+
+.login_form{
+	position: absolute;
+	top: 200%;
+	right: 0;
+	width: 680px;
+	background-color: #fff;
+	border-radius: 5px;
+    box-shadow: 0 2px 2px 2px rgba(0,0,0,.5);
+	z-index: 2;
+	display: none;
+
+}
+
+.login_form:before{
+	content: "";
+	position: absolute;
+	top: -8px;
+	right: 120px;
+	width: 0;
+	height: 0;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	border-bottom: 8px solid #fff;
+}
+
+.login_block{
+	position: relative;
+	display: inline-block;
+}
+
+.login_form{
+	color: #363636;
+	padding: 40px 0;
+}
+.login_form .login_form_header{
+	font-family: "RobotoRegular";
+	font-size: 24px;
+	color: #fe6319;
+	font-weight: normal;
+	margin-top: 0;
+	margin-bottom: 40px;
+}
+
+.login_form .login_form_header span{
+	font-family: "RobotoLight";
+	font-size: 14px;
+	color: #363636;
+	display: block;
+}
+
+.login_form_side{
+	padding: 0 30px;
+}
+
+.login_form form{
+	border-right: 1px solid #e3e4e8;
+}
+
+.login_form input{
+	width: 	280px;
+
+}
+
+#remember_me{
+	display: none;
+}
+
+#remember_me:checked + label>.fa{
+	color: rgb(25, 254, 66);
+}
+
+.login_form .input_group{
+	margin-bottom: 20px;
+}
+
+.login_form .input_group label{
+	margin-bottom: 10px;
+	display: block;
+}
+
+.login_form label{
+	font-family: "RobotoLight";
+	font-size: 14px;
+}
+
+label.checkbox{
+	cursor: pointer;
+}
+
+label.checkbox .fa{
+	transition: color .25s ease;
+	font-size: 20px;
+	margin-right: 5px;
+}
+
+.lf_links, .mail_link{
+	color: #007baf !important;
+	border-bottom: 1px solid #007baf !important;
+	transition: border-bottom-color .25s ease;
+	margin-left: 20px;
+}
+
+.lf_links:hover, .mail_link:hover{
+	border-bottom-color: transparent !important;
+}
+
+.login_form .accent_button{
+	padding-left: 50px;
+	padding-right: 50px;
+	border-radius: 0;
+	margin-top: 20px;
+}
+
+.social_auth{
+	list-style-type: none;
+
+}
+
+.social_auth li{
+	margin-bottom: 10px;
+}
+
+.login_form .social_auth_link{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	transition: background-color .25s ease;
+	border-radius: 5px;
+}
+
+.login_form .social_auth_link{
+	border-bottom: none !important;
+	padding-left: 15px;
+	font-family: "RobotoRegular";
+	font-size: 14px;
+}
+
+
+.social_auth_link .fa{
+	padding: 16px 0;
+	font-size: 18px;
+	width: 40px;
+	text-align: center;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.fb{
+	background-color: #5d9cec;
+}
+.fb .fa{
+	background-color: #4b89dc;
+}
+.fb:hover{
+	background-color: #4b89dc;
+}
+
+.tw{
+	background-color: #4fc0e8;
+}
+.tw .fa{
+	background-color: #3aafda;
+}
+.tw:hover{
+	background-color: #3aafda;
+}
+
+.gp{
+	background-color: #ee5567;
+}
+.gp .fa{
+	background-color: #db4453;
+}
+.gp:hover{
+	background-color: #db4453;
+}
+
+.vk{
+	background-color: #4580a7;
+}
+.vk .fa{
+	background-color: #41658b;
+}
+.vk:hover{
+	background-color: #41658b;
+}
+
+.login_form_close{
+	width: 18px;
+	height: 18px;
+	background: url(../images/sprites.png) 0 0 no-repeat;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	cursor: pointer;
+	transition: background .25s ease;
+}
+
+.login_form_close:hover{
+	background: url(../images/sprites.png) -23px 0 no-repeat;
+}
+
+.mail_link{
+	margin-left: 0;
+}
+
+.vacancies_header{
+	font-size: 21px;
+	color: #363636;
+	font-family: "RobotoMedium";
+}
+
+.vacancies_descr{
+	font-family: "RobotoLight";
+	color: #363636;
+	font-size: 15px;
+}
+
+.vacancies_descr span{
+	font-family: "RobotoRegular";
+}
+
+.you_get_header{
+	font-size: 16px;
+	color: #363636;
+}
+
+.vacancies_ul{
+	padding-left: 20px;
+	list-style-type: none;
+	padding-bottom: 35px;
+	border-bottom: 1px solid #dfdfdf;
+}
+
+.vacancies_ul li{
+	font-size: 16px;
+	color: #363636;
+	display: flex;
+	align-items: center;
+	font-family: "RobotoLight";
+	font-size: 15px;
+	margin-bottom: 15px;
+}
+
+.vacancies_ul .fa{
+	color: #fe6319;
+	font-size: 10px;
+	margin-right: 10px;
+}
+
+.vacancie_form{
+	padding: 40px;
+	background-color: #f6f6f6;
+}
+
+.vacancie_form input[type="text"]{
+	max-width: 320px;
+}
+
+.vacancie_form .accent_button{
+	margin-left: 120px;
+}
+
+.vacancie_form input[type="text"], input[type="password"]{
+	width: 320px;
+
+}
+.vacancie_form .input_group{
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
+}
+.vacancie_form .input_group span{
+	width: 160px;
+	text-align: right;
+	color: #494949;
+	font-family: "RobotoRegular";
+	font-size: 15px;
+	margin-right: 20px;
+}
+
+.vacancie_form .accent_button{
+	margin-left: 180px;
+}
+
+.vacancie_form .file_group{
+	margin-left: 0;
+}
+
+.progress{
+	display: flex;
+	align-items: center;
+}
+
+.vacancie_form .input_group .progress_percents{
+	margin-right: 10px;
+	width: auto;
+	color: #ed5565;
+	font-size: 12px;
+	font-family: "RobotoLight";
+}
+
+.progress_bar{
+	display: inline-block;
+	width: 100px;
+	border-radius: 10px;
+	background: #e3e4e8;
+	overflow: hidden;
+}
+.vacancie_form .progress .progress_bar span{
+	display: block;
+	margin: 0;
+	width: 60%;
+	height: 14px;
+	background: #ed5565;
+	transition: width .25s ease;
 }
