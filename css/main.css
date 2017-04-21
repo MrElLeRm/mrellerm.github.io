@@ -3964,3 +3964,20 @@ form.new_ticket{
 	font-size: 15px;
 	font-family: "RobotoLight";
 }
+
+.article_content{
+	font-size: 15px;
+	font-family: "RobotoLight";
+	color: #363636;
+}
+
+.article_share p{
+	color: #464646;
+	font-size: 15px;
+	margin-bottom: 5px;
+	font-family: "RobotoRegular";
+}
+
+.share_types a{
+	margin-right: 5px;
+}
