@@ -30,10 +30,20 @@ $(document).ready(function(){
 			"<div class='slider_nav_arrow'><i class='fa fa-chevron-right'></i></div>"
 		],
 	});
+	$(".leave_review_slider").owlCarousel({
+		items: 1,
+		loop: true,
+		nav: true,
+		navText: [
+			"<div class='slider_nav_arrow'><i class='fa fa-chevron-left'></i></div>", 
+			"<div class='slider_nav_arrow'><i class='fa fa-chevron-right'></i></div>"
+		],
+	});
+	
 	$('.adv_height').matchHeight();
 	$('.feed_slider').matchHeight();
 
-	$(".accordion_head").click(function(){
+	$(".tab .accordion_head").click(function(){
 		$(".accordion_head").not(this).each(function(){
 			$(this).find("i").addClass("fa-plus");
 			$(this).find("i").removeClass("fa-minus");
@@ -44,6 +54,20 @@ $(document).ready(function(){
 		$(this).next().stop().slideToggle(300);
 	});
 
+	$(".orders .accordion_head").click(function(){
+		$(".accordion_head").not(this).each(function(){
+			$(this).find(".accordion_controll").addClass("fa-chevron-down");
+			$(this).find(".accordion_controll").removeClass("fa-chevron-up");
+			$(this).parent().parent().removeClass("active");
+			$(this).next().slideUp(300);
+		});
+		$(this).find(".accordion_controll").toggleClass("fa-chevron-up");
+		$(this).find(".accordion_controll").toggleClass("fa-chevron-down");
+		$(this).parent().parent().toggleClass("active");
+		$(this).next().stop().slideToggle(300);
+	});
+
+
 	$(".cat_list_item").click(function(){
 		$(".cat_list_item").not(this).removeClass("active");
 		var sub_ul = $(this).toggleClass("active").find(".sub_cat_list");
@@ -52,23 +76,31 @@ $(document).ready(function(){
 	});
 
 
-	$("#send_request_button").magnificPopup({
-	  	items: {
-		    src: '#send_request',
-		    type: 'inline'
-		},
-		mainClass: 'mfp-move-from-top',
-	});
+	// $("#send_request_button").magnificPopup({
+	//   	items: {
+	// 	    src: '#send_request',
+	// 	    type: 'inline'
+	// 	},
+	// 	mainClass: 'mfp-move-from-top',
+	// });
 
 	$(".login_link").click(function(){
 		$(".login_form").stop().slideToggle(200);
 	});
 
 	$(".login_form_close").click(function(){
-		$(".login_form").stop().slideUp(200);
+		$(this).parent().slideUp(200);
 
 	});
 
+	$(".top_cart_wrapp").click(function(sender){
+		if(sender.target == $(this).get(0) || sender.target == $(this).find(".fa").get(0) || sender.target == $(this).find(".badge").get(0))
+			$(this).find(".cart_block").stop().slideToggle();
+	});
+
+	$(".profile").click(function(){
+		$(".profile_sub_menu").stop().slideToggle();
+	});
 });
 
 
